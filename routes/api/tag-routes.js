@@ -32,33 +32,14 @@ router.get('/:id', async (req, res) => {
         }
 });
 
-// // get one product
-// router.get('/:id', async (req, res) => {
-//   // find a single product by its `id`
-//   try {
-//     const product = await Product.findById(req.params.id, {
-//       include: [{ model: Category.id}, {model: Tag.id}],
-//     });
-//     if (!product){
-//       res.status(404).json({ message: 'No product found with that id.'});
-//       return;
-//     }
-
-//     res.status(200).json(product);
-//   } catch (err) {
-//     res.status(500).json(err);
-//     }
-//   });
-
-
-
-
-
-
-
-router.post('/', (req, res) => {
+router.post('/', async (req, res) => {
   // create a new tag
-});
+  try {
+    const tag = await Tag.create(req.body);
+    res.status(200).json(tag);
+}catch(err) {
+  res.status(400).json(err);
+}});
 
 router.put('/:id', (req, res) => {
   // update a tag's name by its `id` value
