@@ -5,25 +5,56 @@ const { Tag, Product, ProductTag } = require('../../models');
 
 router.get('/', async (req, res) => {
   // find all tags
-  const tags = await Tag.findAll().catch((err) => {
-    res.json(err);
-  })
-  res.json(tags);
-  // be sure to include its associated Product data
+  try {
+    const tags = await Tag.findAll({
+      include: [{ model: Product}, {}],
+    });
+    res.status(200).json(tags);
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 router.get('/:id', async (req, res) => {
   // find a single tag by its `id`
-  try{
-    const tag = await Tag.findById(req.params.id).catch((err) => {
-      res.json(err);
-      })
-      res.json(tag);
-      }catch(err){
-        res.json(err);
-  }
-  // be sure to include its associated Product data
+  try {
+        const tag = await Tag.findById(req.params.id, {
+          include: [{ model: Product}, {}],
+        });
+        if (!tag){
+          res.status(404).json({ message: 'No tag found with that id.'});
+          return;
+        }
+    
+        res.status(200).json(tag);
+      } catch (err) {
+        res.status(500).json(err);
+        }
 });
+
+// // get one product
+// router.get('/:id', async (req, res) => {
+//   // find a single product by its `id`
+//   try {
+//     const product = await Product.findById(req.params.id, {
+//       include: [{ model: Category.id}, {model: Tag.id}],
+//     });
+//     if (!product){
+//       res.status(404).json({ message: 'No product found with that id.'});
+//       return;
+//     }
+
+//     res.status(200).json(product);
+//   } catch (err) {
+//     res.status(500).json(err);
+//     }
+//   });
+
+
+
+
+
+
 
 router.post('/', (req, res) => {
   // create a new tag
