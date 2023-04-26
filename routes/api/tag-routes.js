@@ -11,15 +11,17 @@ router.get('/', async (req, res) => {
   res.json(tags);
   // be sure to include its associated Product data
 });
-// router.get('/', async (req, res) => {
-//   const userData = await User.findAll().catch((err) => {
-//     res.json(err);
-//   });
-//   res.json(userData);
-// });
 
-router.get('/:id', (req, res) => {
+router.get('/:id', async (req, res) => {
   // find a single tag by its `id`
+  try{
+    const tag = await Tag.findById(req.params.id).catch((err) => {
+      res.json(err);
+      })
+      res.json(tag);
+      }catch(err){
+        res.json(err);
+  }
   // be sure to include its associated Product data
 });
 
