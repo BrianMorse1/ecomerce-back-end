@@ -23,7 +23,7 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
   // find a single product by its `id`
   try {
-    const product = await Product.findById(req.params.id, {
+    const product = await Product.findByPk(req.params.id, {
       include: [{ model: Category}, {model: Tag}],
     });
     if (!product){
@@ -33,6 +33,7 @@ router.get('/:id', async (req, res) => {
 
     res.status(200).json(product);
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
     }
   });
