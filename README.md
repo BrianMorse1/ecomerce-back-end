@@ -1,21 +1,36 @@
-# ecomerce-back-end
 
-GIVEN a functional Express.js API
-WHEN I add my database name, MySQL username, and MySQL password to an environment variable file
-THEN I am able to connect to a database using Sequelize
-WHEN I enter schema and seed commands
-THEN a development database is created and is seeded with test data
-WHEN I enter the command to invoke the application
-THEN my server is started and the Sequelize models are synced to the MySQL database
-WHEN I open API GET routes in Insomnia Core for categories, products, or tags
-THEN the data for each of these routes is displayed in a formatted JSON
-WHEN I test API POST, PUT, and DELETE routes in Insomnia Core
-THEN I am able to successfully create, update, and delete data in my database
+# Ecommerce back end ![](https://img.shields.io/badge/License:-MIT-lightgrey)
+        
+## Description
+This application allows inventory to be created, tracked, updated, deleted, and viewed. Users can initiate a database, seed it with pre-existing inventory, and manage it in real time. 
 
+## Table of Contents
+* [Installation](#installation)
 
+* [Usage](#usage)
 
-- Run source db/schema.sql
+* [Contribution](#contribution)
 
-1. Define the models, fill up their columns
-2. Define the associations in the models/index.js
-3. Define the routes for each models in your routes/api folder
+* [Test](#test)
+
+* [License](#license)
+
+    
+## Installation
+ADDMEADDMEADDME
+
+## Usage
+This project is intended to be used by running the schema file in mysql and then seeding the file using npm. Afterwards, simply provide the routes with the appropriate information via your method of choice, though insomnia can effectively test each route before deployment. 
+
+## Test
+If troubleshooting is necessary, be sure to check the package.json for the required dependencies as well as ensuring that input is being directed to the appropriate port and file paths. 
+
+## Contribution
+This project is not accepting any contributions. 
+
+## License
+This project uses the MIT license. 
+[MIT](./LICENSE)
+
+## Questions
+For any quesitions regarding this project, please see my Github at https://github.com/BrianMorse1/ecomerce-back-end or email me at Brian.p.morse@gmail.com. For a video demonstration of functionality, visit: https://drive.google.com/file/d/1Wj8W99z105FbsBXfAPBhsf3EQOFJxWU2/view. 
