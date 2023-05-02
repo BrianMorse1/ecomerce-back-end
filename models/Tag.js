@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-undef
 const { Model, DataTypes } = require('sequelize');
 
 const sequelize = require('../config/connection.js');

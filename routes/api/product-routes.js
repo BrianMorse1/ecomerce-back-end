@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-undef */
 const router = require('express').Router();
 const { Product, Category, Tag, ProductTag } = require('../../models');
 

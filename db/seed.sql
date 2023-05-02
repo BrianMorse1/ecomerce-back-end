@@ -14,6 +14,15 @@ INSERT INTO product (product_name, price, stock, category_id) VALUES
 ('couch', 500.00, 5, 4),
 ('t-shirt', 20.00, 25, 5);
 
+-- Seed data for `tag` table
+INSERT INTO tag (tag_name) VALUES 
+('accessory'),
+('electronic'),
+('home good'),
+('furniture'),
+('clothing');
+
+
 -- Seed data for `product_tag` table
 INSERT INTO product_tag (product_id, tag_id) VALUES 
 (1, 1),
@@ -25,10 +34,4 @@ INSERT INTO product_tag (product_id, tag_id) VALUES
 (4, 4),
 (5, 5);
 
--- Seed data for `tag` table
-INSERT INTO tag (tag_name) VALUES 
-('accessory'),
-('electronic'),
-('home good'),
-('furniture'),
-('clothing');
+

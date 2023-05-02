@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const router = require('express').Router();
 const { Category, Product } = require('../../models');
 
@@ -57,12 +58,8 @@ router.put('/:id', async (req, res) => {
         }
       }
     )
-
     res.status(200).json(category);
-
-
   } catch(err) {
-    console.log(err);
     res.status(500).json(err);
   }
   

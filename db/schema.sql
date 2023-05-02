@@ -7,14 +7,13 @@ CREATE DATABASE ecommerce_db;
 USE ecommerce_db;
 
 -- Create Tables for seed data
-DROP TABLE IF EXISTS category;
 CREATE TABLE category (
-  id INT AUTO_INCREMENT PRIMARY KEY,
+  id INT AUTO_INCREMENT PRIMARY KEY ON DELETE CASCADE,
   category_name VARCHAR(50) NOT NULL
+  
 );
 
 
-DROP TABLE IF EXISTS product;
 CREATE TABLE product (
   id INT NOT NULL AUTO_INCREMENT,
   product_name VARCHAR(255) NOT NULL,
@@ -22,17 +21,17 @@ CREATE TABLE product (
   stock INT NOT NULL DEFAULT 10,
   category_id INT,
   PRIMARY KEY (id),
-  FOREIGN KEY (category_id) REFERENCES category(id)
+  FOREIGN KEY (category_id) 
+  REFERENCES category(id)
+  
 );
 
-DROP TABLE IF EXISTS tag;
 CREATE TABLE tag (
   id INTEGER NOT NULL AUTO_INCREMENT,
   tag_name VARCHAR(30),
   PRIMARY KEY (id)
 );
 
-DROP TABLE IF EXISTS product_tag;
 CREATE TABLE product_tag (
   id INTEGER NOT NULL AUTO_INCREMENT,
   product_id INTEGER,
